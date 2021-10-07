@@ -1,29 +1,30 @@
 import React from "react";
 import ReactDOM  from "react-dom";
-import exchangebox from "/workspace/thermometer/src/components/exchangebox"
+import exchangebox from "./components/exchangebox.js"
 
-class exchangebox extends React.Component {
+class money extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
 
-        PLN: 0;
-        USD: 0;
+        PLN: 0,
+        USD: 0
         }
 
         this.usdtopln = this.usdtopln.bind(this);
     }
 
-    usdtopln(value, scale){
+    usdtopln(value, scale) {
         switch (scale) {
-            case "USD"
-            this.setState {(PLN : value / 3.93, USD: value)};
-            case "PLN"
-            this.setState {(USD : value * 3.93,PLN: value)};
+            case "USD":
+             this.setState({ PLN : value / 3.93, USD: value });
+             return;
+            case "PLN":
+            this.setState({ USD : value * 3.93,PLN: value });
             return;
         }
     }
-};
+
 render() {
     return (
       <main>
@@ -41,6 +42,5 @@ render() {
       </main>
     );
   }
-}
-
-ReactDOM.render(<Converter />, document.getElementById("root"));
+};
+ReactDOM.render(<money />, document.getElementById("root"));
